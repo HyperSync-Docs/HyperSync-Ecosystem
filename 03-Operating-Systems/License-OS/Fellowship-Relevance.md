@@ -121,7 +121,20 @@ to help ensure that growth does not come at the expense of accountability.
 This challenge is increasingly relevant as AI systems operate across larger and more complex environments.
 
 ---
+## Operational Lessons for Frontier AI Systems
 
+As AI systems become more capable and increasingly integrated into critical environments, many governance challenges begin to resemble problems traditionally found in operational infrastructure.
+
+The License OS was designed around several assumptions that may remain valuable for future AI systems:
+
+- Actions should be authorized before execution.
+- State transitions should be observable and explainable.
+- Failures should be recoverable rather than catastrophic.
+- Human operators should retain meaningful oversight.
+- Governance mechanisms should scale alongside system complexity.
+
+While operational software and advanced AI systems differ substantially, both domains face similar questions surrounding accountability, resilience, authorization, and safe execution.
+---
 ## Areas Relevant to Anthropic Fellowship Research
 
 The License OS intersects with several areas of interest including:
@@ -137,19 +150,6 @@ The License OS intersects with several areas of interest including:
 
 While originally designed for operational workflow governance, many of its architectural concepts provide practical examples of how safety, accountability, and controlled execution can be incorporated into complex systems.
 
-Operational Lessons for Frontier AI Systems
-
-As AI systems become more capable and increasingly integrated into critical environments, many governance challenges begin to resemble problems traditionally found in operational infrastructure.
-
-The License OS was designed around several assumptions that may remain valuable for future AI systems:
-
-Actions should be authorized before execution.
-State transitions should be observable and explainable.
-Failures should be recoverable rather than catastrophic.
-Human operators should retain meaningful oversight.
-Governance mechanisms should scale alongside system complexity.
-
-While operational software and advanced AI systems differ substantially, both domains face similar questions surrounding accountability, resilience, authorization, and safe execution.
 
 The architectural patterns explored within the License OS provide a practical example of how governance mechanisms can be embedded directly into system design rather than added as an afterthought.
 ---
