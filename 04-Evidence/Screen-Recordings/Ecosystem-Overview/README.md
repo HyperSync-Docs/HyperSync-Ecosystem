@@ -1,4 +1,4 @@
-# HyperSync Ecosystem Overview Recording# HyperSync Ecosystem Overview Recording
+# HyperSync Ecosystem Overview Recording
 
 ## Overview
 
