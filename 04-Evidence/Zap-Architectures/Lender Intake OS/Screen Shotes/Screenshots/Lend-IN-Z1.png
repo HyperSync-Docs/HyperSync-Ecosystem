@@ -1,0 +1,15 @@
+Purpose:
+
+Production Zapier workflow diagram for the Borrower Application Intake Listener.
+
+This screenshot provides visual evidence of:
+
+Webhook intake architecture
+License authorization workflow
+Intake identity spine generation
+Deduplication preparation
+State Spine creation and updates
+Audit logging workflow
+Conveyor handoff into Lend-IN-Z2
+
+The screenshot serves as static architectural evidence supporting the documented workflow design and operational structure of Lend-IN-Z1.
