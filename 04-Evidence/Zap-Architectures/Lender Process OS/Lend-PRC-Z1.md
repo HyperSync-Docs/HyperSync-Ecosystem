@@ -1,7 +1,18 @@
+Overview
+
 Lend-PRC-Z1 — Normalize Borrower Contact + Financial Fields
 
 Lend-PRC-Z1 serves as the entry workflow of the Lender Process Operating System.
 
-This workflow receives authorized borrower records from the Intake OS, standardizes borrower contact information, normalizes financial data, prepares records for underwriting validation, updates the Process State Spine, and authorizes progression into Lend-PRC-Z2.
+The workflow receives authorized borrower applications from the Intake OS handoff table, validates conveyor readiness, acquires processing ownership, creates the authoritative Process State Spine record, normalizes borrower contact and financial information, persists normalized data, and advances the application into the validation stage (Lend-PRC-Z2).
 
-The workflow establishes consistent borrower data formatting before lending eligibility validation begins.
+Key normalization activities include:
+
+Name standardization
+Phone formatting
+Email normalization
+Financial field extraction
+Missing data identification
+Process State Spine creation
+
+This workflow establishes clean and consistent borrower data before underwriting validation begins.
