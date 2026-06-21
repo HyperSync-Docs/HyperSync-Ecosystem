@@ -1,0 +1,98 @@
+Overview
+
+Demonstrates successful execution of a qualified borrower through the complete HyperSync Lender Operating System.
+
+Shows operational movement through:
+
+Lender Intake OS
+→ Lender Process OS
+→ Lender Outbound OS
+→ Lender System OS
+
+with successful governance updates, loan officer assignment, and final completion.
+
+Recording Objectives
+
+Demonstrate:
+
+Borrower intake
+
+Loan type tagging
+
+Validation pass
+
+Routing decision
+
+CRM synchronization
+
+Loan officer assignment
+
+Audit logging
+
+Final completion
+Recording Flow
+Section 1
+
+Lender Intake
+
+Show:
+
+Borrower_Application_Raw
+
+Lender_Intake_Log
+
+LoanType_Tag_Log
+Section 2
+
+Lender Process
+
+Show:
+
+Borrower_PRC_Trigger
+
+Validation Pass
+
+Routing Decision
+
+Lender_PRC_Log
+Section 3
+
+Lender Outbound
+
+Show:
+
+Borrower_OUT_Trigger
+
+CRM Sync
+
+Loan Officer Assignment
+
+Task Creation
+Section 4
+
+Lender System
+
+Show:
+
+Borrower Audit Log
+
+Alerts State
+
+Performance Metrics
+
+Final completion
+Success Criteria
+
+Visible evidence of:
+
+Lend_App_ID continuity
+
+Correlation_ID continuity
+
+Successful validation
+
+Successful assignment
+
+Governance updates
+
+Final completed state
