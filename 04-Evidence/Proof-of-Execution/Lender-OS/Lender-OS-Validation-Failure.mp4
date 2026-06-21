@@ -1,0 +1,140 @@
+Overview
+
+Demonstrates Lender Operating System behavior when a borrower fails underwriting validation requirements during processing.
+
+The recording validates borrower qualification controls, governance enforcement, routing decisions, audit logging, and operational visibility when a loan application cannot proceed through the standard approval workflow.
+
+Recording Objectives
+
+Demonstrate:
+
+Borrower intake
+
+Loan type tagging
+
+Borrower enters Process OS
+
+Validation failure occurs
+
+Routing decision executed
+
+Governance updates
+
+Audit logging
+
+Final failed disposition
+Recording Scenario
+
+Example:
+
+Borrower Application
+
+Credit Score:
+580
+
+Required Threshold:
+620
+
+Expected Outcome:
+
+Validation Fail
+
+Routing Failure
+
+Governance Updates
+
+No Approval Processing
+Recording Flow
+Section 1
+
+Lender Intake
+
+Show:
+
+Borrower_Application_Raw
+
+Lender_Intake_Log
+
+LoanType_Tag_Log
+
+Demonstrate:
+
+Borrower successfully enters Intake OS
+
+Loan Type assigned
+
+Governance logs updated
+Section 2
+
+Lender Process
+
+Show:
+
+Borrower_PRC_Trigger
+
+Lender_Validation_Log
+
+Lender_PRC_Log
+
+Demonstrate:
+
+Validation execution
+
+Credit score evaluation
+
+Validation failure
+
+Failure status update
+Section 3
+
+Governance Layer
+
+Show:
+
+Validation Log
+
+Routing Log
+
+PRC Log
+
+Demonstrate:
+
+Validation result recorded
+
+Failure reason captured
+
+Governance history created
+Section 4
+
+Lender System
+
+Show:
+
+Borrower Audit Log
+
+Alert State
+
+Performance Metrics
+
+Demonstrate:
+
+Audit record created
+
+Failure tracked
+
+Operational visibility maintained
+Success Criteria
+
+Visible evidence of:
+
+Lend_App_ID continuity
+
+Correlation_ID continuity
+
+Validation failure
+
+Governance updates
+
+Audit entries
+
+Final failed state
