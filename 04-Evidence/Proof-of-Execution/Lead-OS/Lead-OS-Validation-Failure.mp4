@@ -1,0 +1,93 @@
+Overview
+
+Demonstrates Lead Operating System behavior when a lead fails validation requirements during processing.
+
+The recording validates governance controls, failure handling, audit logging, and operational visibility when a record cannot proceed through the standard processing conveyor.
+
+Recording Objectives
+
+Demonstrate:
+
+Lead creation
+
+Lead intake processing
+
+Lead enters Process OS
+
+Validation failure occurs
+
+Failure governance updates
+
+Error logging
+
+Audit logging
+
+Final failed disposition
+Recording Flow
+Section 1
+
+Lead Intake
+
+Show:
+
+Lead enters trigger sheet
+
+Lead enters staging
+
+Pipeline log update
+
+Event logger update
+Section 2
+
+Lead Process
+
+Show:
+
+Lead enters PRC trigger
+
+Sanitizer execution
+
+Validation rule failure
+
+Validation status update
+
+Failure recorded
+Section 3
+
+Governance Layer
+
+Show:
+
+Validation Log update
+
+Process Error Log update
+
+Process Audit Log update
+Section 4
+
+Lead System
+
+Show:
+
+Error governance entry
+
+Audit governance entry
+
+State update
+
+Final failed status
+Success Criteria
+
+Visible evidence of:
+
+Lead_ID continuity
+
+Correlation_ID continuity
+
+Validation failure
+
+Governance updates
+
+Audit entries
+
+Final failed state
