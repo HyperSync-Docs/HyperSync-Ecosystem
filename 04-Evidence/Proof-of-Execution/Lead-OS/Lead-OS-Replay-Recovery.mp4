@@ -1,0 +1,89 @@
+Overview
+
+Demonstrates Lead Operating System replay and recovery behavior following a controlled processing failure.
+
+The recording validates replay governance, recovery controls, audit logging, and successful operational restoration.
+
+Recording Objectives
+
+Demonstrate:
+
+Lead creation
+
+Lead processing
+
+Controlled failure
+
+Replay queue population
+
+Replay execution
+
+Successful recovery
+
+Audit updates
+
+Final completion
+Recording Flow
+Section 1
+
+Lead Intake
+
+Show:
+
+Lead intake processing
+
+Pipeline updates
+
+Event logging
+Section 2
+
+Lead Process / Outbound
+
+Show:
+
+Record progresses
+
+Controlled failure occurs
+
+Failure recorded
+Section 3
+
+Replay Governance
+
+Show:
+
+Replay Queue update
+
+Replay status
+
+Attempt count
+
+Replay execution
+Section 4
+
+Recovery
+
+Show:
+
+Successful replay
+
+Audit update
+
+State correction
+
+Final completion
+Success Criteria
+
+Visible evidence of:
+
+Lead_ID continuity
+
+Correlation_ID continuity
+
+Replay queue population
+
+Replay execution
+
+Recovery success
+
+Final completed state
