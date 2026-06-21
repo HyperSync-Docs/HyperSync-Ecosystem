@@ -1,0 +1,121 @@
+Overview
+
+Demonstrates replay and recovery behavior within the HyperSync Lender Operating System following a controlled processing interruption.
+
+The recording validates replay governance, recovery controls, operational resiliency, and successful restoration of borrower processing.
+
+Recording Objectives
+
+Demonstrate:
+
+Borrower processing
+
+Controlled failure
+
+Replay queue population
+
+Replay execution
+
+Recovery success
+
+Audit updates
+
+Final completion
+Recording Scenario
+
+Example:
+
+Borrower passes validation
+
+Controlled interruption occurs
+
+Outbound processing stops
+
+Replay queue populated
+
+Replay succeeds
+
+Borrower processing completed
+Recording Flow
+Section 1
+
+Lender Intake
+
+Show:
+
+Borrower intake
+
+Loan type tagging
+
+Governance updates
+Section 2
+
+Lender Process
+
+Show:
+
+Validation pass
+
+Routing completion
+
+PRC governance updates
+Section 3
+
+Controlled Failure
+
+Show:
+
+Outbound interruption
+
+Failure state
+
+Replay eligibility
+
+Demonstrate:
+
+Processing interruption
+
+Failure recorded
+
+Recovery path initiated
+Section 4
+
+Replay Governance
+
+Show:
+
+Replay Queue
+
+Attempt Count
+
+Replay Status
+
+Recovery execution
+Section 5
+
+Recovery Completion
+
+Show:
+
+CRM Sync completion
+
+Assignment completion
+
+Audit updates
+
+Final completed state
+Success Criteria
+
+Visible evidence of:
+
+Lend_App_ID continuity
+
+Correlation_ID continuity
+
+Replay queue population
+
+Replay execution
+
+Recovery success
+
+Final completed state
