@@ -1,0 +1,125 @@
+Overview
+
+Demonstrates borrower processing when required documentation is missing during intake and process validation.
+
+The recording validates missing document detection, document request generation, follow-up scheduling, governance updates, and operational handling of incomplete borrower applications.
+
+Recording Objectives
+
+Demonstrate:
+
+Borrower intake
+
+Missing document detection
+
+Document request generation
+
+Follow-up scheduling
+
+Governance updates
+
+Audit logging
+
+Pending document disposition
+Recording Scenario
+
+Example:
+
+Borrower Application
+
+Income Documentation:
+Missing
+
+Expected Outcome:
+
+Missing Docs Detected
+
+Document Request Created
+
+Follow-Up Scheduled
+
+Pending Docs Status
+Recording Flow
+Section 1
+
+Lender Intake
+
+Show:
+
+Borrower_Application_Raw
+
+Lender_Intake_Log
+
+LoanType_Tag_Log
+Section 2
+
+Missing Docs Detection
+
+Show:
+
+Docs validation
+
+Missing Docs identified
+
+Status update
+
+Demonstrate:
+
+Required document missing
+
+Workflow triggered
+
+Governance updated
+Section 3
+
+Outbound Workflow
+
+Show:
+
+Doc_Request_Log
+
+Doc_Followup_Schedule
+
+Borrower_OUT_Trigger
+
+Demonstrate:
+
+Document request created
+
+Follow-up scheduled
+
+Assignment completed
+Section 4
+
+Lender System
+
+Show:
+
+Borrower Audit Log
+
+Alert State
+
+Performance Tracking
+
+Demonstrate:
+
+Audit entry
+
+Workflow visibility
+
+Pending Docs state
+Success Criteria
+
+Visible evidence of:
+
+Lend_App_ID continuity
+
+Correlation_ID continuity
+
+Missing Docs detection
+
+Document request generation
+
+Follow-up scheduling
+
+Pending Docs state
