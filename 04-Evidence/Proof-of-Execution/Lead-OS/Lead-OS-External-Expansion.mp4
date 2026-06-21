@@ -1,0 +1,85 @@
+Overview
+
+Demonstrates external lead ingestion through the Lead Operating System using the external intake expansion architecture.
+
+The recording validates source mapping, intake routing, governance tracking, and successful downstream processing of externally originated records.
+
+Recording Objectives
+
+Demonstrate:
+
+External source submission
+
+External intake mapping
+
+Lead routing
+
+Pipeline processing
+
+Campaign activation
+
+Governance updates
+
+Final completion
+Recording Flow
+Section 1
+
+External Intake
+
+Show:
+
+External source entry
+
+Source mapping
+
+Expansion trigger
+Section 2
+
+Lead Intake
+
+Show:
+
+Lead intake processing
+
+Pipeline log update
+
+Event logger update
+Section 3
+
+Lead Process
+
+Show:
+
+Sanitizer execution
+
+Validation pass
+
+CRM preparation
+Section 4
+
+Lead Outbound / System
+
+Show:
+
+CRM sync
+
+Campaign enrollment
+
+Audit logging
+
+Completion
+Success Criteria
+
+Visible evidence of:
+
+Lead_ID continuity
+
+Correlation_ID continuity
+
+External source mapping
+
+Governance updates
+
+Successful routing
+
+Final completed state
