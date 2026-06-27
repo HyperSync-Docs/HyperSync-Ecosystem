@@ -13,8 +13,8 @@ The quiz link serves as verifiable evidence that the course assessment was succe
 **Quiz Link**
 
 ```text
-
-](https://claude.ai/public/artifacts/293dbe7e-a693-41bf-8281-4f7ef7190dad)```
+https://claude.ai/public/artifacts/e7eee7da-3de6-4a1b-a637-4e4dda7f1957
+```
 
 ## Related Repository Artifacts
 
