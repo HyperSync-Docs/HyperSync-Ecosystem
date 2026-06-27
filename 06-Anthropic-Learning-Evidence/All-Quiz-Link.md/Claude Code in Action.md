@@ -14,7 +14,7 @@ The quiz link serves as publicly accessible verification that the course assessm
 
 ```text
 https://claude.ai/public/artifacts/293dbe7e-a693-41bf-8281-4f7ef7190dad
-## Related Repository Artifacts
+
 
 * Course-Summary.md
 * Completion-Notes.md
