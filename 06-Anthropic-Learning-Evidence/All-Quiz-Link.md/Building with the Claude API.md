@@ -13,7 +13,7 @@ The quiz link serves as verifiable evidence that the course assessment was succe
 **Quiz Link**
 
 ```text
-Paste Anthropic Quiz Share Link Here
+https://claude.ai/public/artifacts/5e32c414-e0c0-49c1-aaf7-337d83cb3224
 ```
 
 ## Related Repository Artifacts
