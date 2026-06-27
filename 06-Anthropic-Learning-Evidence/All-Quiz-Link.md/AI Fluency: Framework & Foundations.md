@@ -13,7 +13,7 @@ The quiz link serves as external verification that the course assessment was suc
 **Quiz Link**
 
 ```text
-https://claude.ai/public/artifacts/dc01bf51-bd7f-43eb-aad8-3eacb3a9f394
+https://claude.ai/public/artifacts/8144542b-beab-40a6-a635-08634f057e20
 
 ## Related Repository Artifacts
 
