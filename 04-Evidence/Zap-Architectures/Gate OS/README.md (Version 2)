@@ -1,0 +1,189 @@
+# SYS-LIC-GATE-Z1
+## License Validation Controller
+
+Version: 2.0
+
+---
+
+# Overview
+
+SYS-LIC-GATE-Z1 serves as the authorization boundary for the HyperSync License Operating System.
+
+Every provisioning request must pass through this controller before any downstream execution is permitted.
+
+Unlike traditional workflow validation that relies on isolated business rules, Gate Z1 performs deterministic operational authorization by evaluating license state, governance status, execution capacity, and processing integrity before issuing an execution decision.
+
+The controller functions as the authoritative authorization layer for the entire License Operating System.
+
+---
+
+# Architectural Purpose
+
+Gate Z1 is responsible for:
+
+• License Authorization
+
+• Execution Eligibility Validation
+
+• Operational State Verification
+
+• Governance Enforcement
+
+• Execution Capacity Validation
+
+• Authorization Decision Generation
+
+• Immutable Audit Generation
+
+---
+
+# Core Responsibilities
+
+The controller performs a comprehensive validation of operational readiness including:
+
+- License Status
+- Tier Status
+- Stage Status
+- Processing Lock
+- Authorization Status
+- Webhook Registration
+- Execution Capacity
+- Correlation Integrity
+- Requested Zap Validation
+- License Identity Validation
+
+Only requests satisfying every operational requirement are authorized.
+
+---
+
+# Workflow
+
+License Registry
+↓
+
+Python Authorization Engine
+
+↓
+
+Eligibility Validation
+
+↓
+
+Authorization Decision
+
+↓
+
+──────────────┬──────────────
+
+Authorized            Denied
+
+↓
+
+Operational State Update
+
+↓
+
+Governance Audit Record
+
+---
+
+# Operational Characteristics
+
+• Event Driven
+
+• Deterministic
+
+• Idempotent
+
+• Replay Safe
+
+• Stateless Validation
+
+• Processing Lock Protection
+
+• Correlation_ID Traceability
+
+• Immutable Governance Logging
+
+---
+
+# HyperSync Architectural Principles
+
+- Event Driven Architecture
+- Deterministic State Machines
+- Mutable Operational State
+- Immutable Governance Layer
+- Single Responsibility Principle
+- Processing Lock Protection
+- Replay Safety
+- Authorization Contracts
+- Correlation Traceability
+- Human + AI Operational Collaboration
+
+---
+
+# Inputs
+
+- License_ID
+- Correlation_ID
+- Requested_Zap
+- License_Status
+- Tier_Status
+- Stage_Status
+- Processing_Lock
+- Authorization_Status
+- Webhook_Key
+- Volume_Limit
+- Executions_Used
+
+---
+
+# Outputs
+
+Authorized Path
+
+or
+
+Denied Path
+
+with complete governance evidence.
+
+---
+
+# Evidence Produced
+
+• Zapier Tables Operational State
+
+• Provisioning Audit Log
+
+• Authorization Decision
+
+• Correlation Traceability
+
+• Immutable Governance Evidence
+
+---
+
+# HyperSync Ecosystem Position
+
+License Operating System
+
+↓
+
+SYS-LIC-GATE-Z1
+
+↓
+
+License Lifecycle Controller
+
+↓
+
+Provisioning Workers
+
+↓
+
+Operational Governance
+
+---
+
+Version 2 introduces a rebuilt deterministic authorization controller replacing the original workflow-centric implementation with a state-driven operational gateway aligned with the HyperSync Operating System architecture.
