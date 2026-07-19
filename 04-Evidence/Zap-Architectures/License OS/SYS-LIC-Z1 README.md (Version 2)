@@ -1,0 +1,156 @@
+# SYS-LIC-Z1
+## License Provisioning Controller
+
+Version: 2.0
+
+---
+
+# Overview
+
+SYS-LIC-Z1 is the entry point of the HyperSync License Operating System.
+
+This controller transforms external provisioning requests into deterministic operational state by validating incoming requests, generating globally unique identifiers, initializing the License Registry, recording immutable governance evidence, and routing execution to downstream lifecycle controllers.
+
+Version 2 restructures the workflow from a traditional provisioning automation into a bounded operating system component aligned with the HyperSync architectural framework.
+
+---
+
+# What's New in Version 2
+
+Version 2 introduces significant architectural refinements that improve determinism, observability, governance, and maintainability.
+
+### Architectural Improvements
+
+- Refactored into a bounded operating system controller
+- Deterministic provisioning contract
+- Explicit operational state initialization
+- Improved separation between operational state and governance evidence
+- Standardized Correlation_ID traceability
+- Enhanced downstream ownership transfer
+- Improved replay compatibility
+- Stronger alignment with HyperSync Operating System principles
+
+---
+
+# Core Responsibilities
+
+SYS-LIC-Z1 is responsible for:
+
+- Intake normalization
+- Provisioning validation
+- License identifier generation
+- Correlation contract creation
+- Registry initialization
+- Tier routing
+- Governance evidence creation
+- Lifecycle controller handoff
+
+SYS-LIC-Z1 intentionally does **not** perform license activation. Operational ownership transfers to downstream controllers after provisioning is complete.
+
+---
+
+# HyperSync Architectural Principles
+
+- Event-Driven Execution
+- Deterministic State Machines
+- Mutable Operational State
+- Immutable Governance
+- Single Responsibility Principle
+- Explicit Ownership Transfer
+- Replay-Safe Design
+- Correlation_ID Traceability
+- Human + AI Collaboration
+
+---
+
+# Operational Flow
+
+External Provisioning Request
+
+↓
+
+Normalize Request
+
+↓
+
+Validate Contract
+
+↓
+
+Generate License Identity
+
+↓
+
+Initialize License Registry
+
+↓
+
+Route Tier Configuration
+
+↓
+
+Append Governance Evidence
+
+↓
+
+Transfer Ownership to SYS-LIC-Z2
+
+---
+
+# Version Evolution
+
+## Version 1
+
+Traditional workflow-based provisioning process.
+
+Characteristics:
+
+- Workflow-centric
+- Limited ownership boundaries
+- Operational logic tightly coupled to implementation
+
+---
+
+## Version 2
+
+HyperSync Operating System architecture.
+
+Characteristics:
+
+- Deterministic controller
+- Bounded responsibilities
+- Explicit state ownership
+- Governance separation
+- Improved observability
+- Replay-compatible architecture
+- Enterprise operating system design
+
+---
+
+# HyperSync Ecosystem
+
+External Systems
+
+↓
+
+SYS-LIC-Z1
+
+↓
+
+SYS-LIC-Z2
+
+↓
+
+Gate OS
+
+↓
+
+SYS-LIC-Z3
+
+↓
+
+SYS-LIC-RRM
+
+---
+
+Version 2 establishes SYS-LIC-Z1 as the deterministic provisioning controller for the HyperSync License Operating System and serves as the authoritative entry point for all license lifecycle processing.
