@@ -1,0 +1,221 @@
+# SYS-LIC-GATE-Z2
+## Replay Queue Controller
+
+Version: 2.0
+
+---
+
+# Overview
+
+SYS-LIC-GATE-Z2 is the autonomous replay controller for the HyperSync License Operating System.
+
+Its responsibility is to safely recover failed license operations by evaluating replay eligibility, enforcing deterministic retry policies, scheduling exponential backoff, and dispatching replay requests back into the execution pipeline.
+
+Rather than acting as a simple retry mechanism, Gate Z2 operates as a controlled state machine that guarantees replay integrity while preventing duplicate execution and infinite retry loops.
+
+---
+
+# Architectural Purpose
+
+Gate Z2 is responsible for:
+
+• Replay Queue Management
+
+• Replay Eligibility Validation
+
+• Retry Contract Enforcement
+
+• Exponential Backoff Scheduling
+
+• Replay Dispatch
+
+• Replay State Commitment
+
+• Governance Evidence Generation
+
+---
+
+# Core Responsibilities
+
+The controller performs the following operational sequence:
+
+- Load replay queue records
+- Validate replay eligibility
+- Verify retry limits
+- Calculate replay attempt schedule
+- Compute next replay timestamp
+- Dispatch replay to the Execution Worker
+- Confirm replay with the License Lifecycle Controller
+- Commit operational replay state
+- Append immutable governance evidence
+
+Every replay follows a deterministic execution contract.
+
+---
+
+# Workflow
+
+Replay Queue
+
+↓
+
+Replay Eligibility Validation
+
+↓
+
+Python Replay Contract
+
+↓
+
+Retry Schedule Calculation
+
+↓
+
+Replay Dispatch
+
+↓
+
+Execution Worker
+
+↓
+
+Lifecycle Controller Confirmation
+
+↓
+
+Replay Queue Update
+
+↓
+
+Governance Evidence
+
+---
+
+# Operational Characteristics
+
+• Event Driven
+
+• Deterministic Replay
+
+• Idempotent Execution
+
+• Exponential Backoff Scheduling
+
+• Retry Limit Enforcement
+
+• Processing Lock Protection
+
+• Correlation_ID Traceability
+
+• Immutable Governance Logging
+
+---
+
+# Replay Policy
+
+Gate Z2 enforces a bounded replay strategy using exponential backoff.
+
+Replay attempts are scheduled using increasing retry intervals to reduce repeated failures while maintaining automatic recovery.
+
+Example policy:
+
+Attempt 1 → 2 minutes
+
+Attempt 2 → 4 minutes
+
+Attempt 3 → 8 minutes
+
+Attempt 4 → 16 minutes
+
+Attempt 5 → 60 minutes
+
+After the configured retry threshold is reached, replay authority is transferred to the DeadLetter Controller.
+
+---
+
+# HyperSync Architectural Principles
+
+- Event Driven Architecture
+- Deterministic State Machines
+- Mutable Operational State
+- Immutable Governance Layer
+- Single Responsibility Principle
+- Replay Safety
+- Processing Lock Protection
+- Authorization Contracts
+- Correlation Traceability
+- Human + AI Operational Collaboration
+
+---
+
+# Inputs
+
+- Replay_ID
+- Record_ID
+- Correlation_ID
+- License_ID
+- Replay_Status
+- Attempt_Count
+- Last_Error
+- Environment
+- Raw_Payload_JSON
+
+---
+
+# Outputs
+
+Replay Executed
+
+or
+
+Replay Deferred
+
+or
+
+DeadLetter Escalation
+
+with complete governance evidence.
+
+---
+
+# Evidence Produced
+
+• Replay Queue State Updates
+
+• Replay Attempt Logs
+
+• Execution Dispatch Confirmation
+
+• Lifecycle Confirmation
+
+• Immutable Governance Records
+
+---
+
+# HyperSync Ecosystem Position
+
+License Operating System
+
+↓
+
+SYS-LIC-GATE-Z2
+
+↓
+
+Execution Worker
+
+↓
+
+SYS-LIC-Z2 Lifecycle Controller
+
+↓
+
+Replay Queue State
+
+↓
+
+Governance Evidence
+
+---
+
+Version 2 introduces a deterministic replay controller replacing the original retry workflow with a bounded replay state machine. Replay eligibility, retry scheduling, worker dispatch, and governance logging have been separated into explicit operational responsibilities, improving resiliency, observability, and replay safety across the HyperSync License Operating System.
