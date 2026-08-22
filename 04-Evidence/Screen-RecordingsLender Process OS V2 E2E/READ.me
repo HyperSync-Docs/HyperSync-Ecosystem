@@ -1,0 +1,162 @@
+# Lender Process OS V2 — End-to-End Runs
+
+## Evidence Overview
+
+This directory contains end-to-end execution recordings for Version 2 of the HyperSync Lender Processing Operating System.
+
+The recordings collectively demonstrate how intake-approved borrower applications are normalized, evaluated against financial and documentation requirements, assigned deterministic routing decisions, and prepared for controlled transfer into the Lender Outbound Operating System.
+
+The Lender Process OS V2 series is composed of three coordinated Zapier workflows:
+
+- `Lend-PRC-Z1` — Normalize Borrower Contact and Financial Fields
+- `Lend-PRC-Z2` — Validate DTI, Credit, and Documentation
+- `Lend-PRC-Z3` — Route Pre-Approved and Pending-Document Applications
+
+## Architectural Role
+
+The Lender Processing OS is the deterministic decision layer of the broader HyperSync Lender Operating System.
+
+It is responsible for:
+
+- accepting authorized applications from the Intake OS;
+- validating the Intake-to-Process handoff;
+- normalizing borrower identity and contact data;
+- normalizing financial and property data;
+- evaluating debt-to-income conditions;
+- evaluating credit eligibility;
+- validating documentation status;
+- producing controlled routing decisions;
+- updating persistent application state;
+- isolating incomplete or ineligible records;
+- recording processing evidence; and
+- preparing eligible applications for outbound execution.
+
+These responsibilities implement the processing portion of the HyperSync Common Operating System Contract while preserving modularity, deterministic execution, persistent state, and integrated governance.
+
+## V2 Workflow Series
+
+### Lend-PRC-Z1 — Normalize Borrower Contact and Financial Fields
+
+Receives the governed handoff from the Lender Intake OS and prepares the borrower record for deterministic evaluation.
+
+The workflow validates processing eligibility, acquires the application lock, normalizes borrower names, email addresses, telephone numbers, property information, loan values, income values, and credit data, and writes the standardized outputs back to persistent operational state.
+
+Successful normalization advances the application to the financial-validation stage.
+
+### Lend-PRC-Z2 — Validate DTI, Credit, and Documentation
+
+Evaluates the normalized application against the financial and documentation requirements of the lending process.
+
+The workflow calculates the debt-to-income ratio, evaluates credit status, checks income-document readiness, records the individual validation results, and produces a consolidated route decision.
+
+Applications with sufficient financial and documentation readiness can advance toward pre-approval. Applications requiring additional documentation remain governed through the appropriate pending-document route.
+
+### Lend-PRC-Z3 — Route Pre-Approved and Pending-Document Applications
+
+Translates the validation result into an authorized downstream processing route.
+
+The workflow evaluates the route decision created by `Lend-PRC-Z2`, separates pre-approved applications from applications requiring documentation, commits the resulting state transition, and identifies the next authorized Lender Outbound OS workflow.
+
+This step completes the Processing OS lifecycle and establishes the governed Process-to-Out handoff.
+
+## End-to-End Operational Flow
+
+The V2 processing sequence follows this controlled progression:
+
+1. An intake-approved application enters through the Intake-to-Process handoff.
+2. `Lend-PRC-Z1` validates processing eligibility and acquires the processing lock.
+3. Borrower, contact, property, loan, income, and credit fields are normalized.
+4. The standardized results are persisted to the authoritative state record.
+5. `Lend-PRC-Z2` evaluates debt-to-income, credit, and documentation conditions.
+6. Individual validation outcomes are consolidated into a deterministic route decision.
+7. `Lend-PRC-Z3` separates pre-approved applications from pending-document applications.
+8. The selected route and next authorized workflow are written to persistent state.
+9. Processing authority is transferred to the appropriate Outbound OS workflow.
+10. Governance records preserve the processing decisions and state transitions.
+
+## Deterministic Validation Model
+
+The Lender Processing OS converts borrower data into explicit and reviewable processing outcomes.
+
+The validation model preserves:
+
+- normalized borrower identity;
+- normalized contact information;
+- normalized property information;
+- normalized loan amount;
+- normalized monthly income;
+- normalized credit score;
+- debt-to-income ratio;
+- DTI evaluation status;
+- credit evaluation status;
+- documentation status;
+- consolidated route decision;
+- current processing stage;
+- processing-lock status;
+- last completed workflow; and
+- next authorized workflow.
+
+This model prevents downstream workflows from relying on ambiguous raw inputs or transient execution context.
+
+## Persistent-State Coordination
+
+Each processing workflow communicates through the authoritative Lender state architecture rather than through an uncontrolled chain of direct workflow calls.
+
+Persistent state coordinates:
+
+- workflow eligibility;
+- lock acquisition and release;
+- normalization completion;
+- validation results;
+- routing authority;
+- replay eligibility;
+- error context;
+- handoff readiness; and
+- cross-workflow traceability.
+
+This allows each processing stage to operate independently while remaining synchronized with the complete borrower-application lifecycle.
+
+## Governance and Control Behavior
+
+The V2 implementation applies governance throughout the processing lifecycle.
+
+The workflow series demonstrates:
+
+- explicit Intake-to-Process handoff validation;
+- pre-execution eligibility filtering;
+- processing-lock enforcement;
+- deterministic normalization;
+- transparent financial calculations;
+- explicit Pass, Fail, and Unknown validation states;
+- controlled routing decisions;
+- persistent state mutation;
+- exception isolation;
+- replay-aware execution context; and
+- governance records for material processing decisions.
+
+## Evidence Objectives
+
+The recordings in this directory provide visible evidence of:
+
+- successful Intake-to-Process transfer;
+- processing-eligibility validation;
+- processing-lock acquisition;
+- borrower and financial-data normalization;
+- persistent normalized-state writes;
+- debt-to-income calculation;
+- credit evaluation;
+- documentation-readiness evaluation;
+- consolidated route-decision generation;
+- pre-approved and pending-document routing;
+- controlled advancement across all three Processing workflows; and
+- successful preparation for the Outbound OS.
+
+## Architectural Significance
+
+The Lender Process OS V2 demonstrates how complex lending decisions can be decomposed into bounded workflows without sacrificing consistency or traceability.
+
+Normalization, validation, and routing remain separate operational responsibilities. Persistent state and standardized workflow contracts connect these responsibilities into a governed processing conveyor. This structure makes every material lending decision observable, reproducible, and available for downstream review.
+
+## Evidence Organization
+
+Each MP4 file in this directory documents a specific V2 workflow, decision path, or end-to-end state transition. Recording-specific commits provide the detailed execution scope and verified results for each evidence artifact.
