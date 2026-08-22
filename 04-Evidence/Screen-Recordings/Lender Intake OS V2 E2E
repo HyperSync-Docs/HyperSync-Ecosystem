@@ -1,0 +1,141 @@
+# Lender Intake OS V2 — End-to-End Runs
+
+## Evidence Overview
+
+This directory contains end-to-end execution recordings for Version 2 of the HyperSync Lender Intake Operating System.
+
+The recordings collectively demonstrate how borrower applications enter the Lender Operating System, receive execution authorization, acquire authoritative identity and state, undergo classification and duplicate evaluation, and transition into the Lender Processing Operating System through a governed operational handoff.
+
+The Lender Intake OS V2 series is composed of four coordinated Zapier workflows:
+
+- `Lend-IN-Z1` — Borrower Application Intake Listener
+- `Lend-IN-Z2` — Automatic Loan-Type Classification
+- `Lend-IN-Z3` — Duplicate Intake Detection and Status Routing
+- `Lend-IN-Z4` — Missing-Field Detection and Document-Readiness Preparation
+
+## Architectural Role
+
+The Lender Intake OS is the entry boundary for borrower applications within the broader HyperSync Lender Operating System.
+
+It is responsible for:
+
+- receiving borrower application events;
+- validating license and execution context;
+- establishing authoritative application identifiers;
+- normalizing the initial operational envelope;
+- creating persistent intake state;
+- classifying the requested loan type;
+- detecting duplicate submissions;
+- evaluating field and document readiness;
+- isolating incomplete or duplicate applications;
+- recording governance evidence; and
+- preparing eligible applications for the Processing OS.
+
+These responsibilities implement the intake portion of the HyperSync Common Operating System Contract while preserving deterministic execution, persistent state, governance integration, and operational traceability.
+
+## V2 Workflow Series
+
+### Lend-IN-Z1 — Borrower Application Intake Listener
+
+Receives the borrower application and establishes the initial execution context.
+
+The workflow validates the submitted license context, applies authorization controls, creates the authoritative `Lend_App_ID` and `Correlation_ID`, evaluates contact-data completeness, generates a deterministic duplicate key, initializes the Lender Intake State record, and writes the intake event to the governance layer.
+
+### Lend-IN-Z2 — Automatic Loan-Type Classification
+
+Evaluates the authorized intake record and assigns an operational loan-type classification.
+
+The workflow acquires a processing lock, applies deterministic classification rules to borrower and loan data, records the resulting loan type, updates the intake state, and advances the application toward duplicate evaluation.
+
+### Lend-IN-Z3 — Duplicate Intake Detection and Status Routing
+
+Determines whether the incoming borrower application represents a unique or previously submitted intake event.
+
+The workflow evaluates the deterministic duplicate key against historical state, records the duplicate result, isolates duplicate submissions when detected, and routes unique applications forward to the final intake-validation stage.
+
+### Lend-IN-Z4 — Missing-Field Detection and Document-Readiness Preparation
+
+Performs the final completeness evaluation before the borrower application leaves the Intake OS.
+
+The workflow evaluates required identity, contact, property, loan, credit, and income fields. Complete applications are marked ready for processing and transferred through an Intake-to-Process handoff. Incomplete applications are retained within the Intake OS for missing-field or document-request handling.
+
+## End-to-End Operational Flow
+
+The V2 intake sequence follows this controlled progression:
+
+1. A borrower application enters through `Lend-IN-Z1`.
+2. License and execution context are validated before business processing begins.
+3. Authoritative identifiers and persistent intake state are established.
+4. `Lend-IN-Z2` classifies the application by loan type.
+5. `Lend-IN-Z3` evaluates the application for duplicate submission behavior.
+6. Unique applications advance to `Lend-IN-Z4`.
+7. `Lend-IN-Z4` evaluates field completeness and document readiness.
+8. Complete applications transition to `PRC_Z1_READY`.
+9. An Intake-to-Process handoff transfers execution authority to the Lender Processing OS.
+10. Governance records preserve the application’s intake history and state transitions.
+
+## Persistent-State Model
+
+The Lender Intake OS does not depend exclusively on transient workflow memory. Each workflow reads from and writes to persistent operational state.
+
+The state model preserves:
+
+- `Lend_App_ID`;
+- `Correlation_ID`;
+- source-submission identity;
+- current processing stage;
+- stage status;
+- processing-lock status;
+- duplicate-evaluation results;
+- validation results;
+- missing-field details;
+- document-readiness state;
+- last completed workflow;
+- next authorized workflow; and
+- governance and replay context.
+
+This persistent-state approach allows the intake sequence to remain observable, recoverable, and independently verifiable across workflow boundaries.
+
+## Governance and Control Behavior
+
+The V2 implementation applies governance throughout the intake lifecycle rather than treating auditing as a final reporting step.
+
+The workflow series demonstrates:
+
+- early authorization gating;
+- explicit workflow eligibility checks;
+- processing-lock acquisition and release;
+- deterministic state transitions;
+- duplicate isolation;
+- incomplete-record isolation;
+- persistent governance writes;
+- correlation-based traceability;
+- controlled inter-workflow routing; and
+- an explicit Intake-to-Process handoff.
+
+## Evidence Objectives
+
+The recordings in this directory provide visible evidence of:
+
+- borrower application ingestion;
+- license-context validation;
+- Path A and Path B routing behavior;
+- authoritative application-state creation;
+- deterministic loan-type classification;
+- duplicate detection and isolation;
+- missing-field evaluation;
+- document-readiness preparation;
+- persistent state mutation;
+- governance-record creation;
+- controlled progression across all four Intake workflows; and
+- successful transfer from the Intake OS to the Processing OS.
+
+## Architectural Significance
+
+The Lender Intake OS V2 demonstrates that borrower intake can be implemented as a bounded, multi-workflow operating system rather than as a single monolithic automation.
+
+Each workflow owns a defined responsibility while coordinating through persistent state, standardized eligibility contracts, processing locks, deterministic transitions, and governance records. Together, the four workflows form an operational conveyor that converts an external borrower submission into an authorized, validated, traceable, and processing-ready application.
+
+## Evidence Organization
+
+Each MP4 file in this directory documents a specific V2 workflow, execution path, or end-to-end state transition. Recording-specific commits provide the detailed execution scope and verified results for each evidence artifact.
