@@ -1,0 +1,161 @@
+# Lender Out OS V2 — End-to-End Runs
+
+## Evidence Overview
+
+This directory contains end-to-end execution recordings for Version 2 of the HyperSync Lender Outbound Operating System.
+
+The recordings collectively demonstrate how processing-approved borrower applications are synchronized with external systems, routed into document-request operations, assigned to responsible lending personnel, and prepared for continued lifecycle management.
+
+The Lender Out OS V2 series is composed of three coordinated Zapier workflows:
+
+- `Lend-OUT-Z1` — CRM Contact and Application Upsert
+- `Lend-OUT-Z2` — Borrower Document Request
+- `Lend-OUT-Z3` — Lender Assignment and Outbound Handoff
+
+## Architectural Role
+
+The Lender Outbound OS is the external-action and synchronization layer of the broader HyperSync Lender Operating System.
+
+It is responsible for:
+
+- accepting authorized routing decisions from the Processing OS;
+- validating the Process-to-Out handoff;
+- synchronizing borrower and application data with the CRM;
+- preserving external-system identifiers;
+- initiating document-request operations;
+- coordinating borrower communications;
+- assigning applications to lending personnel;
+- publishing downstream operational events;
+- persisting outbound execution results;
+- recording external-action evidence; and
+- transferring operational visibility to the Lender System OS.
+
+These responsibilities implement the outbound portion of the HyperSync Common Operating System Contract while maintaining deterministic execution, persistent operational state, governance integration, and cross-system traceability.
+
+## V2 Workflow Series
+
+### Lend-OUT-Z1 — CRM Contact and Application Upsert
+
+Receives an authorized application from the Lender Processing OS and synchronizes the borrower record with the designated CRM platform.
+
+The workflow validates outbound eligibility, acquires the processing lock, determines whether the borrower record should be created or updated, performs the CRM upsert, preserves the resulting external contact identifier, and records the synchronization result in persistent operational state.
+
+Successful CRM synchronization establishes the authoritative external identity required by subsequent outbound operations.
+
+### Lend-OUT-Z2 — Borrower Document Request
+
+Coordinates document-request activity for applications that require additional borrower documentation.
+
+The workflow evaluates the application’s documentation status and route decision, identifies the required documentation, prepares the borrower-facing request, records the request state, and advances the application into a controlled pending-document lifecycle.
+
+Applications that do not require additional documentation bypass unnecessary request activity and continue through the appropriate outbound route.
+
+### Lend-OUT-Z3 — Lender Assignment and Outbound Handoff
+
+Assigns the application to the appropriate lending resource and completes the primary outbound workflow sequence.
+
+The workflow evaluates assignment eligibility, applies the designated routing criteria, records the responsible lender or operational owner, updates the authoritative application state, and publishes the resulting assignment for downstream monitoring and lifecycle coordination.
+
+This step completes the Outbound OS execution sequence and establishes visibility for the Lender System OS.
+
+## End-to-End Operational Flow
+
+The V2 outbound sequence follows this controlled progression:
+
+1. A routed borrower application enters through the Process-to-Out handoff.
+2. Outbound eligibility and application state are validated.
+3. `Lend-OUT-Z1` creates or updates the borrower record in the CRM.
+4. The resulting CRM contact identifier is written to persistent state.
+5. `Lend-OUT-Z2` evaluates whether additional borrower documentation is required.
+6. Required document requests are prepared, transmitted, and recorded.
+7. Applications not requiring documents continue without unnecessary request activity.
+8. `Lend-OUT-Z3` applies the lender-assignment decision.
+9. The assignment and outbound completion state are persisted.
+10. Governance and monitoring records expose the resulting actions to the Lender System OS.
+
+## External-System Synchronization
+
+The Lender Outbound OS separates internal decision state from external action while maintaining traceability between them.
+
+The synchronization model preserves:
+
+- `Lend_App_ID`;
+- `Correlation_ID`;
+- CRM contact identity;
+- CRM synchronization status;
+- document-request status;
+- requested-document context;
+- borrower-communication status;
+- lender-assignment status;
+- assigned operational owner;
+- current outbound stage;
+- last completed workflow;
+- next authorized workflow; and
+- outbound execution results.
+
+This structure ensures that external actions can be traced back to the internal application state and the processing decision that authorized them.
+
+## Persistent-State Coordination
+
+Each outbound workflow reads from and writes to the authoritative Lender state architecture.
+
+Persistent state coordinates:
+
+- Process-to-Out handoff readiness;
+- outbound eligibility;
+- processing-lock status;
+- CRM synchronization;
+- document-request activity;
+- lender assignment;
+- external-system identifiers;
+- error and replay context;
+- workflow completion; and
+- downstream monitoring readiness.
+
+This prevents external integrations from becoming disconnected side effects and makes each action available for governance, replay, and operational review.
+
+## Governance and Control Behavior
+
+The V2 implementation applies governance before and after each external action.
+
+The workflow series demonstrates:
+
+- explicit Process-to-Out handoff validation;
+- pre-execution eligibility filtering;
+- processing-lock enforcement;
+- idempotent create-or-update behavior;
+- external-identifier persistence;
+- decision-based document requests;
+- controlled borrower communication;
+- deterministic lender assignment;
+- outbound result tracking;
+- exception isolation;
+- replay-aware execution context; and
+- governance records for material external actions.
+
+## Evidence Objectives
+
+The recordings in this directory provide visible evidence of:
+
+- successful Process-to-Out transfer;
+- outbound eligibility validation;
+- CRM contact creation or update;
+- persistent CRM identifier storage;
+- document-requirement evaluation;
+- borrower document-request preparation;
+- pending-document state management;
+- lender-assignment execution;
+- persistent outbound-state mutation;
+- external-action governance;
+- controlled advancement across all three Outbound workflows; and
+- successful exposure of outbound results to the System OS.
+
+## Architectural Significance
+
+The Lender Out OS V2 demonstrates that external CRM actions, document communications, and lender assignments can operate as governed extensions of the internal lending lifecycle.
+
+Each external action is authorized by persistent application state, performed within a bounded workflow, and followed by an explicit state update. This prevents external integrations from functioning as opaque endpoints and preserves observability across the boundary between HyperSync and downstream platforms.
+
+## Evidence Organization
+
+Each MP4 file in this directory documents a specific V2 workflow, execution path, external action, or end-to-end state transition. Recording-specific commits provide the detailed execution scope and verified results for each evidence artifact.
